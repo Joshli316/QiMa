@@ -9,6 +9,7 @@ const strings = {
   nav_dashboard:    { zh: '仪表盘', en: 'Dashboard' },
   nav_lessons:      { zh: '课程', en: 'Lessons' },
   nav_glossary:     { zh: '词汇表', en: 'Glossary' },
+  nav_commands:     { zh: '命令', en: 'Commands' },
   nav_gallery:      { zh: '作品廊', en: 'Gallery' },
   nav_career:       { zh: '职业', en: 'Career' },
   nav_settings:     { zh: '设置', en: 'Settings' },

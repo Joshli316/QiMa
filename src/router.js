@@ -10,6 +10,7 @@ export const routes = {
   '/dashboard': 'dashboard',
   '/lesson/:day': 'lesson',
   '/glossary': 'glossary',
+  '/commands': 'commands',
   '/gallery': 'gallery',
   '/career': 'career',
   '/settings': 'settings',

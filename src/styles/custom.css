@@ -1052,3 +1052,260 @@ button:focus-visible, a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================
+   Commands Reference Page
+   ============================================ */
+
+.commands-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 100px 20px 60px;
+}
+
+.commands-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.commands-header__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.commands-header__zh {
+  color: var(--coral);
+}
+
+.commands-header__sep {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.commands-header__en {
+  color: var(--text);
+}
+
+.commands-header__subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.commands-controls {
+  margin-bottom: 28px;
+}
+
+.commands-search {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition);
+  margin-bottom: 16px;
+}
+
+.commands-search:focus {
+  border-color: var(--coral);
+}
+
+.commands-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.commands-tab {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.commands-tab:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.commands-tab--active {
+  background: var(--coral);
+  color: #fff;
+  border-color: var(--coral);
+}
+
+.commands-section {
+  margin-bottom: 28px;
+}
+
+.commands-section__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius) var(--radius) 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+}
+
+.commands-section__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.commands-section__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  flex: 1;
+}
+
+.commands-section__count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.commands-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius) var(--radius);
+  overflow: hidden;
+}
+
+.commands-row {
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.commands-row:last-child {
+  border-bottom: none;
+}
+
+.commands-row:hover {
+  background: var(--bg-card-hover);
+}
+
+.commands-row__num {
+  width: 40px;
+  padding: 10px 8px 10px 12px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: right;
+  vertical-align: top;
+}
+
+.commands-row__cmd {
+  width: 180px;
+  padding: 10px 12px;
+  vertical-align: top;
+}
+
+.commands-row__code {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  padding: 3px 8px 3px 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.commands-row__desc {
+  padding: 10px 12px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.commands-row__desc-alt {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  display: block;
+  margin-top: 2px;
+}
+
+.commands-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.commands-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.commands-tip__icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.commands-tip__text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.commands-tip__text code {
+  background: var(--bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--coral);
+}
+
+.commands-tip__text--secondary {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+/* Mobile: make command column narrower */
+@media (max-width: 640px) {
+  .commands-row__cmd {
+    width: 120px;
+  }
+
+  .commands-row__code {
+    font-size: 0.78rem;
+  }
+
+  .commands-row__num {
+    width: 30px;
+    padding-left: 8px;
+  }
+
+  .commands-header__title {
+    font-size: 1.5rem;
+  }
+}

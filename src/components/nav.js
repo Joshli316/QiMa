@@ -21,6 +21,7 @@ export function render(currentRoute = 'dashboard') {
   const navItems = [
     { route: 'dashboard', labelKey: 'nav_dashboard' },
     { route: 'glossary',  labelKey: 'nav_glossary' },
+    { route: 'commands',  labelKey: 'nav_commands' },
     { route: 'gallery',   labelKey: 'nav_gallery' },
     { route: 'career',    labelKey: 'nav_career' },
     { route: 'settings',  labelKey: 'nav_settings' },

@@ -10,11 +10,12 @@ import * as landing from './components/landing.js';
 import * as dashboard from './components/dashboard.js';
 import * as lesson from './components/lesson.js';
 import * as glossary from './components/glossary.js';
+import * as commands from './components/commands.js';
 import * as gallery from './components/gallery.js';
 import * as career from './components/career.js';
 import * as settings from './components/settings.js';
 
-const components = { landing, dashboard, lesson, glossary, gallery, career, settings };
+const components = { landing, dashboard, lesson, glossary, commands, gallery, career, settings };
 
 /* ── Page render callback ── */
 
