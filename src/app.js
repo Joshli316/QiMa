@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Update streak
   updateStreak();
 
-  // 4. Redirect to dashboard if already started (before router init to avoid double render)
-  if (state.started && (!location.hash || location.hash === '#' || location.hash === '#/')) {
+  // 4. Redirect to dashboard if already started and no hash set (first visit of session)
+  if (state.started && !location.hash) {
     location.hash = '#/dashboard';
   }
 

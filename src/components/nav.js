@@ -62,7 +62,7 @@ export function render(currentRoute = 'dashboard') {
         <div class="flex items-center justify-between h-14">
 
           <!-- Left: Logo -->
-          <a href="#dashboard" class="nav-link flex items-center gap-2 shrink-0" data-route="dashboard">
+          <a href="#/" class="flex items-center gap-2 shrink-0" id="nav-logo">
             <svg class="w-6 h-6 text-[#FF6B4A]" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
@@ -149,6 +149,11 @@ export function render(currentRoute = 'dashboard') {
         </button>
       </div>
       <div class="p-3 flex flex-col gap-1">
+        <a href="#/"
+           class="drawer-link block px-4 py-3 text-base font-medium rounded-lg transition-colors ${currentRoute === 'landing' ? 'text-[#FF6B4A] bg-orange-50 dark:bg-orange-900/20' : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}"
+           data-route="landing">
+          ${lang === 'zh' ? '首页' : 'Home'}
+        </a>
         ${drawerLinks}
       </div>
     </aside>
@@ -160,13 +165,27 @@ export function render(currentRoute = 'dashboard') {
  * @param {function} navigate - Router's navigate function
  */
 export function init(navigate) {
+  // --- Logo link (goes to landing page) ---
+  const logo = document.getElementById('nav-logo');
+  if (logo) {
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigate('/');
+      closeDrawer();
+    });
+  }
+
   // --- Desktop & drawer nav links ---
   document.querySelectorAll('.nav-link, .drawer-link').forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const route = link.dataset.route;
       if (route) {
-        navigate('/' + route);
+        if (route === 'landing') {
+          navigate('/');
+        } else {
+          navigate('/' + route);
+        }
         closeDrawer();
       }
     });
