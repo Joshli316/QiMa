@@ -2,8 +2,8 @@
 // CodeLaunch 码上出发 — Landing Page Component
 // ============================================
 
-import { t } from '../i18n.js';
 import { setState } from '../state.js';
+import { getLanguage } from '../i18n.js';
 import { getCurriculumOverview } from '../content/curriculum.js';
 
 // Build days array from curriculum (single source of truth)
@@ -303,7 +303,7 @@ export function render() {
         <p class="text-xs text-[#1A1A2E]/40">Community access</p>
       </div>
     </div>
-    <button id="pricing-cta" class="cta-btn inline-block bg-[#FF6B4A] text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-[#FF6B4A]/20 text-lg">
+    <button id="included-cta" class="cta-btn inline-block bg-[#FF6B4A] text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-[#FF6B4A]/20 text-lg">
       开始学习 Start Learning
     </button>
   </div>
@@ -359,7 +359,7 @@ export function init(navigate) {
     });
   }
 
-  const pricingCta = document.getElementById('pricing-cta');
+  const pricingCta = document.getElementById('included-cta');
   if (pricingCta) {
     pricingCta.addEventListener('click', () => {
       setState({ started: true });

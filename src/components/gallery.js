@@ -2,7 +2,7 @@
 // CodeLaunch — Project Showcase Gallery
 // ============================================
 
-import { t, getLanguage } from '../i18n.js';
+import { getLanguage } from '../i18n.js';
 import { projects } from '../content/projects.js';
 
 // ── State ──

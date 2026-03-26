@@ -184,7 +184,7 @@ export function init() {
     currentCategory = btn.dataset.category;
 
     // Update active state
-    tabsContainer.querySelectorAll('.glossary-tab').forEach(t => t.classList.remove('glossary-tab--active'));
+    tabsContainer.querySelectorAll('.glossary-tab').forEach(tab => tab.classList.remove('glossary-tab--active'));
     btn.classList.add('glossary-tab--active');
 
     // Re-render grid only

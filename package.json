@@ -2,7 +2,7 @@
   "name": "claude-code-launch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "build:css": "tailwindcss -i src/styles/tailwind.css -o dist/tailwind.css --minify",
     "dev:css": "tailwindcss -i src/styles/tailwind.css -o dist/tailwind.css --watch",

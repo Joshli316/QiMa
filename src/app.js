@@ -3,7 +3,7 @@
  */
 
 import { initRouter, navigate, getCurrentRoute } from './router.js';
-import { getState, setState, updateStreak, applyTheme } from './state.js';
+import { getState, setState, updateStreak } from './state.js';
 import { setLanguage, getLanguage } from './i18n.js';
 import { render as renderNav, init as initNav } from './components/nav.js';
 import * as landing from './components/landing.js';
