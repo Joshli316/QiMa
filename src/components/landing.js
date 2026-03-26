@@ -282,26 +282,26 @@ export function render() {
     <h2 class="text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-2">全部内容，完全免费</h2>
     <p class="text-[#1A1A2E]/50 mb-10 text-lg">Everything included. 100% free.</p>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
-      <div class="text-center">
+      <a href="#/dashboard" class="included-link text-center block rounded-xl p-4 transition-colors hover:bg-[#FF6B4A]/5 cursor-pointer">
         <div class="text-3xl mb-2">&#128218;</div>
         <p class="text-sm font-semibold text-[#1A1A2E]">14天完整课程</p>
         <p class="text-xs text-[#1A1A2E]/40">Full curriculum</p>
-      </div>
-      <div class="text-center">
+      </a>
+      <a href="#/glossary" class="included-link text-center block rounded-xl p-4 transition-colors hover:bg-[#FF6B4A]/5 cursor-pointer">
         <div class="text-3xl mb-2">&#128214;</div>
         <p class="text-sm font-semibold text-[#1A1A2E]">双语词汇表</p>
         <p class="text-xs text-[#1A1A2E]/40">Bilingual glossary</p>
-      </div>
-      <div class="text-center">
+      </a>
+      <a href="#/gallery" class="included-link text-center block rounded-xl p-4 transition-colors hover:bg-[#FF6B4A]/5 cursor-pointer">
         <div class="text-3xl mb-2">&#127912;</div>
         <p class="text-sm font-semibold text-[#1A1A2E]">项目作品廊</p>
         <p class="text-xs text-[#1A1A2E]/40">Project gallery</p>
-      </div>
-      <div class="text-center">
+      </a>
+      <a href="#/career" class="included-link text-center block rounded-xl p-4 transition-colors hover:bg-[#FF6B4A]/5 cursor-pointer">
         <div class="text-3xl mb-2">&#128172;</div>
         <p class="text-sm font-semibold text-[#1A1A2E]">社区交流</p>
         <p class="text-xs text-[#1A1A2E]/40">Community access</p>
-      </div>
+      </a>
     </div>
     <button id="included-cta" class="cta-btn inline-block bg-[#FF6B4A] text-white font-bold py-4 px-10 rounded-full shadow-lg shadow-[#FF6B4A]/20 text-lg">
       开始学习 Start Learning
