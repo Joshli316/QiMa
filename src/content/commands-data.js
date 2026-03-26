@@ -400,4 +400,12 @@ export const commands = [
       en: 'List configured MCP servers',
     },
   },
+  {
+    command: 'claude --from-pr',
+    category: 'cli',
+    description: {
+      zh: '恢复与 PR 关联的会话',
+      en: 'Resume session linked to a PR',
+    },
+  },
 ];
