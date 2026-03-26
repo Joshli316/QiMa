@@ -1,5 +1,5 @@
 import { t, getLanguage, toggleLanguage } from '../i18n.js';
-import { getState, setState, getProgress } from '../state.js';
+import { getState, getProgress, toggleTheme } from '../state.js';
 
 /**
  * Render the navigation bar HTML.
@@ -183,16 +183,7 @@ export function init(navigate) {
   const themeBtn = document.getElementById('theme-toggle');
   if (themeBtn) {
     themeBtn.addEventListener('click', () => {
-      const state = getState();
-      const newTheme = state.theme === 'dark' ? 'light' : 'dark';
-      setState({ theme: newTheme });
-      document.documentElement.dataset.theme = newTheme;
-      if (newTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-      // Re-render to swap icon
+      toggleTheme();
       document.dispatchEvent(new CustomEvent('themeChanged'));
     });
   }

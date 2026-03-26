@@ -1,5 +1,5 @@
 import { t, getLanguage, setLanguage } from '../i18n.js';
-import { getState, setState, resetState } from '../state.js';
+import { getState, setState, resetState, toggleTheme } from '../state.js';
 
 // ============================================
 // CodeLaunch — Settings Component
@@ -155,21 +155,10 @@ export function init() {
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const state = getState();
-      const currentTheme = state.theme || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-      setState({ theme: newTheme });
-
-      // Apply theme to document
-      document.documentElement.dataset.theme = newTheme;
-      if (newTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      toggleTheme();
 
       // Update toggle visual state
+      const newTheme = getState().theme;
       const knob = themeToggle.querySelector('span');
       if (newTheme === 'dark') {
         themeToggle.classList.remove('bg-gray-300', 'dark:bg-gray-600');

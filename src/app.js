@@ -3,7 +3,7 @@
  */
 
 import { initRouter, navigate, getCurrentRoute } from './router.js';
-import { getState, setState, updateStreak } from './state.js';
+import { getState, setState, updateStreak, applyTheme } from './state.js';
 import { setLanguage, getLanguage } from './i18n.js';
 import { render as renderNav, init as initNav } from './components/nav.js';
 import * as landing from './components/landing.js';
@@ -70,14 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const state = getState();
   setLanguage(state.language);
 
-  // 2. Apply theme
+  // 2. Apply theme (no setState needed — just apply what's saved)
   const theme = state.theme || 'light';
   document.documentElement.dataset.theme = theme;
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+  if (theme === 'dark') document.documentElement.classList.add('dark');
 
   // 3. Update streak
   updateStreak();

@@ -145,6 +145,29 @@ export function updateStreak() {
 }
 
 /**
+ * Apply a theme to the document and persist to state.
+ * Single source of truth for theme changes — call this instead of
+ * manipulating classList/dataset directly.
+ */
+export function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+  setState({ theme });
+}
+
+/**
+ * Toggle between light and dark theme.
+ */
+export function toggleTheme() {
+  const { theme } = getState();
+  applyTheme(theme === 'dark' ? 'light' : 'dark');
+}
+
+/**
  * Returns progress summary: completed count, total, and percentage.
  */
 export function getProgress() {
