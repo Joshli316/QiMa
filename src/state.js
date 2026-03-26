@@ -89,9 +89,10 @@ export function unlockBadge(id) {
  * Marks a lesson day as complete. Adds to completedLessons if not already there.
  */
 export function completeLesson(day) {
+  const d = Number(day);
   const state = getState();
-  if (state.completedLessons.includes(day)) return;
-  setState({ completedLessons: [...state.completedLessons, day] });
+  if (state.completedLessons.includes(d)) return;
+  setState({ completedLessons: [...state.completedLessons, d] });
 }
 
 /**
@@ -129,7 +130,7 @@ export function updateStreak() {
     const lastDate = new Date(state.lastVisit);
     const todayDate = new Date(today);
     const diffMs = todayDate - lastDate;
-    const diffDays = diffMs / (1000 * 60 * 60 * 24);
+    const diffDays = Math.round(diffMs / (1000 * 60 * 60 * 24));
 
     if (diffDays === 1) {
       newStreak = state.streak + 1;

@@ -32,7 +32,7 @@ export function render(currentRoute = 'dashboard') {
       ? 'text-[#FF6B4A] border-b-2 border-[#FF6B4A]'
       : 'text-gray-600 dark:text-gray-300 hover:text-[#FF6B4A]';
     return `
-      <a href="#${route}"
+      <a href="#/${route}"
          class="nav-link px-3 py-2 text-sm font-medium transition-colors ${activeClasses}"
          data-route="${route}">
         ${t(labelKey)}
@@ -45,7 +45,7 @@ export function render(currentRoute = 'dashboard') {
       ? 'text-[#FF6B4A] bg-orange-50 dark:bg-orange-900/20'
       : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700';
     return `
-      <a href="#${route}"
+      <a href="#/${route}"
          class="drawer-link block px-4 py-3 text-base font-medium rounded-lg transition-colors ${activeClasses}"
          data-route="${route}">
         ${t(labelKey)}
@@ -85,7 +85,7 @@ export function render(currentRoute = 'dashboard') {
 
             <!-- Progress Ring -->
             <div class="relative" title="${pct}% complete">
-              <svg width="28" height="28" class="transform -rotate-90">
+              <svg width="28" height="28" class="transform -rotate-90" role="img" aria-label="${pct}% complete">
                 <circle cx="14" cy="14" r="${radius}"
                         fill="none" stroke-width="2.5"
                         class="stroke-gray-200 dark:stroke-gray-700"/>
@@ -203,6 +203,11 @@ export function init(navigate) {
   if (overlay) {
     overlay.addEventListener('click', closeDrawer);
   }
+
+  // Escape key closes mobile drawer
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer();
+  });
 }
 
 // --- Drawer helpers ---

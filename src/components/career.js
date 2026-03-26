@@ -214,7 +214,7 @@ export function render() {
   const lang = getLanguage();
 
   return `
-    <div class="max-w-5xl mx-auto px-4 py-6 space-y-8">
+    <div class="max-w-5xl mx-auto px-4 pt-20 pb-6 space-y-8">
 
       <!-- ========== PAGE HEADER ========== -->
       <div class="text-center">
@@ -310,7 +310,7 @@ export function render() {
         <div class="space-y-3">
           ${interviewQA.map((qa, i) => `
             <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden">
-              <button class="accordion-toggle w-full flex items-center justify-between p-5 text-left" data-accordion-index="${i}">
+              <button class="accordion-toggle w-full flex items-center justify-between p-5 text-left" aria-expanded="false" data-accordion-index="${i}">
                 <div class="flex-1 pr-4">
                   <p class="text-sm font-bold text-gray-800 dark:text-white">${qa.q[lang]}</p>
                   <p class="text-xs text-gray-400 mt-0.5">${qa.q[lang === 'zh' ? 'en' : 'zh']}</p>
@@ -393,9 +393,11 @@ export function init() {
       if (isHidden) {
         body.classList.remove('hidden');
         if (chevron) chevron.style.transform = 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', 'true');
       } else {
         body.classList.add('hidden');
         if (chevron) chevron.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
   });

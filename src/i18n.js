@@ -143,6 +143,15 @@ export function t(key, params) {
 export function setLanguage(lang) {
   if (lang !== 'zh' && lang !== 'en') return;
   currentLang = lang;
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  try {
+    const raw = localStorage.getItem('codelaunch_state');
+    if (raw) {
+      const state = JSON.parse(raw);
+      state.language = lang;
+      localStorage.setItem('codelaunch_state', JSON.stringify(state));
+    }
+  } catch { /* ignore */ }
   document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }
 

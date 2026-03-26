@@ -15,7 +15,7 @@ export function render() {
   const currentTheme = state.theme || 'light';
 
   return `
-    <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+    <div class="max-w-2xl mx-auto px-4 pt-20 pb-6 space-y-6">
 
       <!-- ========== PAGE HEADER ========== -->
       <div>
@@ -63,7 +63,7 @@ export function render() {
                   class="relative inline-flex h-7 w-12 items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] focus:ring-offset-2 dark:focus:ring-offset-gray-800 ${currentTheme === 'dark' ? 'bg-[#FF6B4A]' : 'bg-gray-300 dark:bg-gray-600'}"
                   role="switch"
                   aria-checked="${currentTheme === 'dark'}"
-                  aria-label="${lang === 'zh' ? '切换深色模式' : 'Toggle dark mode'}"
+                  aria-label="${lang === 'zh' ? '切换深色模式' : 'Toggle dark mode'}">
             <span class="inline-block h-5 w-5 rounded-full bg-white shadow-md transform transition-transform duration-200 ${currentTheme === 'dark' ? 'translate-x-6' : 'translate-x-1'}"></span>
           </button>
           <span class="text-sm text-gray-600 dark:text-gray-300">${lang === 'zh' ? '深色' : 'Dark'}</span>
@@ -194,6 +194,7 @@ export function init() {
     requestAnimationFrame(() => {
       resetModalContent.classList.remove('scale-95');
       resetModalContent.classList.add('scale-100');
+      const cancelBtn = document.getElementById('reset-cancel'); if (cancelBtn) cancelBtn.focus();
     });
   }
 
@@ -217,6 +218,12 @@ export function init() {
       if (e.target === resetModal) closeResetModal();
     });
   }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && resetModal && !resetModal.classList.contains('hidden')) {
+      closeResetModal();
+    }
+  });
 
   if (resetConfirm) {
     resetConfirm.addEventListener('click', () => {

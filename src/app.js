@@ -18,8 +18,8 @@ const components = { landing, dashboard, lesson, glossary, gallery, career, sett
 
 /* ── Page render callback ── */
 
-function renderPage() {
-  const route = getCurrentRoute();
+function renderPage(route) {
+  if (!route) route = getCurrentRoute();
   const { name, params } = route;
 
   // Render nav
@@ -171,7 +171,7 @@ function showToast(message, type = 'success') {
     container.id = 'toast-container';
     container.setAttribute('role', 'status');
     container.setAttribute('aria-live', 'polite');
-    container.style.cssText = 'position:fixed;top:20px;right:20px;z-index:10000;display:flex;flex-direction:column;gap:8px;pointer-events:none;';
+    container.style.cssText = 'position:fixed;top:64px;right:16px;z-index:10000;display:flex;flex-direction:column;gap:8px;pointer-events:none;';
     document.body.appendChild(container);
   }
 

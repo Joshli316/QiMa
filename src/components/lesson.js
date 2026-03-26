@@ -514,7 +514,14 @@ export function init(navigate) {
       if (direction === 'prev' && day > 1) {
         navigate('/lesson/' + (day - 1));
       } else if (direction === 'next' && day < 14) {
-        navigate('/lesson/' + (day + 1));
+        const st = getState();
+        if (st.completedLessons.includes(day)) {
+          navigate('/lesson/' + (day + 1));
+        } else {
+          if (window.showToast) {
+            window.showToast(getLanguage() === 'zh' ? '请先完成当前课程' : 'Complete this lesson first', 'streak');
+          }
+        }
       }
     });
   });

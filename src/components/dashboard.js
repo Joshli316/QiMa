@@ -151,7 +151,7 @@ export function render() {
                 Day ${nextDay}
               </span>
               <h2 class="text-xl font-bold text-gray-800 dark:text-white">
-                ${dayTitles[nextDay]?.zh || ''} <span class="text-gray-400 font-normal text-base">/ ${dayTitles[nextDay]?.en || ''}</span>
+                ${lang === 'zh' ? (dayTitles[nextDay]?.zh || '') : (dayTitles[nextDay]?.en || '')} <span class="text-gray-400 font-normal text-base">/ ${lang === 'zh' ? (dayTitles[nextDay]?.en || '') : (dayTitles[nextDay]?.zh || '')}</span>
               </h2>
               <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                 \u{23F0} ${lang === 'zh' ? '约30分钟' : '~30 min'}
@@ -302,8 +302,8 @@ function renderDayCards(start, end, completedLessons, lang) {
           </span>
           <span class="text-base">${statusIcon}</span>
         </div>
-        <p class="text-sm font-semibold text-gray-800 dark:text-white leading-tight">${title.zh}</p>
-        <p class="text-xs text-gray-400 dark:text-gray-500 leading-tight mt-0.5">${title.en}</p>
+        <p class="text-sm font-semibold text-gray-800 dark:text-white leading-tight">${lang === 'zh' ? title.zh : title.en}</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 leading-tight mt-0.5">${lang === 'zh' ? title.en : title.zh}</p>
         <p class="text-xs text-gray-400 dark:text-gray-500 mt-2">\u{23F0} ~30 min</p>
       </div>
     `;

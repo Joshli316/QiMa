@@ -148,6 +148,7 @@ export function render() {
           id="glossary-search"
           class="glossary-search"
           placeholder="搜索 / Search..."
+          aria-label="Search glossary terms"
           autocomplete="off"
         />
         <div class="glossary-tabs" id="glossary-tabs">
