@@ -2,10 +2,12 @@
 
 A bilingual (Chinese/English) tutorial app that takes Chinese international students from zero coding knowledge to shipping prototypes with Claude Code in 14 days.
 
+## App Name
+Renamed from CodeLaunch 码上出发 to 起码 QiMa. URL stays claude-code-launch.pages.dev.
+
 ## Tech Stack
 - Vanilla JavaScript/HTML single-page app on Cloudflare Pages
-- Tailwind CSS via CDN for styling
-- No build step — vanilla JS ES modules served directly
+- Tailwind CSS v4 built via @tailwindcss/cli (`npm run build:css`)
 - localStorage for progress tracking (no backend)
 - Bilingual: Chinese primary, English secondary (with language toggle)
 
@@ -24,12 +26,14 @@ claude-code-launch/
 │   │   ├── lesson.js       # Lesson viewer (content + terminal sim)
 │   │   ├── glossary.js     # Bilingual tech glossary
 │   │   ├── gallery.js      # Project showcase gallery
+│   │   ├── commands.js     # Claude Code command reference
 │   │   ├── career.js       # Career corner
 │   │   ├── settings.js     # User preferences
 │   │   └── nav.js          # Navigation bar
 │   ├── content/
 │   │   ├── curriculum.js   # All 14 days of lesson content
 │   │   ├── glossary-data.js # Bilingual term dictionary
+│   │   ├── commands-data.js # Claude Code command reference data
 │   │   └── projects.js     # Gallery project data
 │   └── styles/
 │       └── custom.css      # Custom styles beyond Tailwind
@@ -41,7 +45,7 @@ claude-code-launch/
 ```
 
 ## Entry Point
-`index.html` — loads Tailwind CDN, custom CSS, and bundled JS.
+`index.html` — loads built Tailwind CSS (`dist/tailwind.css`) and custom CSS.
 
 ## Deployment
 `wrangler pages deploy .` from project root.
