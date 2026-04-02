@@ -64,7 +64,7 @@ export function render() {
     <!-- Left: Text Content -->
     <div class="text-center md:text-left">
       <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight glow-text fade-in-up">
-        两周，从零到发布。
+        两周，<br>从零到发布。
       </h1>
       <p class="mt-4 text-xl sm:text-2xl md:text-3xl text-white/70 font-light fade-in-up fade-in-up-delay-1">
         Two weeks. Zero to shipped.
