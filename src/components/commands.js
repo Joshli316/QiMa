@@ -4,6 +4,7 @@
 
 import { getLanguage } from '../i18n.js';
 import { commands, commandCategories } from '../content/commands-data.js';
+import { initAudioPlayback } from '../audio.js';
 
 // ── State ──
 
@@ -39,13 +40,16 @@ function renderCommandCard(cmd) {
   const cat = getCategoryMeta(cmd.category);
   const catLabel = lang === 'zh' ? cat.label.zh : cat.label.en;
 
+  const audioText = `${cmd.description.en} / ${cmd.description.zh}`;
+
   return `
     <div class="commands-card animate-slide-up">
       <div class="commands-card__command"><code>${cmd.command}</code></div>
       <div class="commands-card__zh">${cmd.description.zh}</div>
       <p class="commands-card__desc">${cmd.description.en}</p>
-      <div class="commands-card__category-tag" style="background: ${cat.color}15; color: ${cat.color}">
-        ${catLabel}
+      <div class="commands-card__example commands-audio" role="button" tabindex="0" data-example="${audioText.replace(/"/g, '&quot;')}" title="Click to hear pronunciation">
+        <code>${cmd.description.en} / ${cmd.description.zh}</code>
+        <span class="glossary-audio__icon">&#128264;</span>
       </div>
     </div>
   `;
@@ -146,6 +150,12 @@ export function init() {
   const contentContainer = document.getElementById('commands-content');
 
   if (!searchInput || !tabsContainer || !contentContainer) return;
+
+  initAudioPlayback(
+    document.querySelector('.commands-page'),
+    '.commands-audio',
+    'commands-audio--playing'
+  );
 
   searchInput.addEventListener('input', () => {
     currentSearch = searchInput.value.trim();

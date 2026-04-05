@@ -2,8 +2,9 @@
 // 起码 QiMa — Bilingual Tech Glossary
 // ============================================
 
-import { t, getLanguage } from '../i18n.js';
+import { getLanguage } from '../i18n.js';
 import { glossaryTerms } from '../content/glossary-data.js';
+import { initAudioPlayback } from '../audio.js';
 
 // ── State ──
 
@@ -52,7 +53,10 @@ function renderTermCard(term) {
       <div class="glossary-card__zh">${term.zh}</div>
       <div class="glossary-card__pinyin">${term.pinyin}</div>
       <p class="glossary-card__def">${definition}</p>
-      ${example ? `<div class="glossary-card__example"><code>${example}</code></div>` : ''}
+      ${example ? `<div class="glossary-card__example glossary-audio" role="button" tabindex="0" data-example="${example.replace(/"/g, '&quot;')}" title="Click to hear pronunciation">
+        <code>${example}</code>
+        <span class="glossary-audio__icon">&#128264;</span>
+      </div>` : ''}
     </div>
   `;
 }
@@ -75,7 +79,10 @@ function renderWordOfTheDay() {
       <div class="glossary-wotd__zh">${wordOfTheDay.zh}</div>
       <div class="glossary-wotd__pinyin">${wordOfTheDay.pinyin}</div>
       <p class="glossary-wotd__def">${definition}</p>
-      ${example ? `<div class="glossary-wotd__example"><code>${example}</code></div>` : ''}
+      ${example ? `<div class="glossary-wotd__example glossary-audio" role="button" tabindex="0" data-example="${example.replace(/"/g, '&quot;')}" title="Click to hear pronunciation">
+        <code>${example}</code>
+        <span class="glossary-audio__icon">&#128264;</span>
+      </div>` : ''}
     </div>
   `;
 }
@@ -169,6 +176,12 @@ export function init() {
   const gridContainer = document.getElementById('glossary-grid-container');
 
   if (!searchInput || !tabsContainer || !gridContainer) return;
+
+  initAudioPlayback(
+    document.querySelector('.glossary-page'),
+    '.glossary-audio',
+    'glossary-audio--playing'
+  );
 
   // Search — real-time filtering on keyup
   searchInput.addEventListener('input', () => {
