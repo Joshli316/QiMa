@@ -66,5 +66,5 @@ claude-code-launch/
 ### 2026-03-26 — Build, Polish & Deploy
 **Done:** Full build from plan.md, quality audits (review/refactor/roast/expert-panel), made free, PRD briefing, commands page (45 bilingual), app rename to 起码 QiMa, "First Steps" logo, 20 responsive fixes
 **Decisions:** Name 起码 QiMa (wordplay), card-style commands matching glossary, grids always fill complete rows
-**Open:** Days 2-14 content, og-image.png, community link placeholder, no tests
-**Next:** Write Day 2-3 lesson content
+**Open:** og-image.png, community link placeholder, no tests
+**Note:** All 14 days of lesson content are complete.
